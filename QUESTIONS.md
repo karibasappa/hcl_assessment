@@ -10,7 +10,7 @@ What are your thoughts on the pros and cons of each approach? Which would you ch
 
 **Answer:**
 ```txt
-Generating code using openAPI is good and insted of writng code manually but only cons is  Developer must have good knowledge on debugging generated code and testing, otherwise this approch is good
+Generating code using openAPI is good and insted of writng code manually but only cons is  Developer must have good knowledge on debugging generated code and testing, otherwise this approch is good.
 
 ```
 
@@ -23,8 +23,8 @@ Given the need to balance thorough testing with time and resource constraints, h
 Which types of tests (unit, integration, parameterized, etc.) would you focus on, and how would you ensure test coverage remains effective over time?
 
 **Answer:**
-
 ```
 As a Developer i preperence to Unit testing and later integration testing, For code coverage we have many tools like Jacoco, SonarCube etc 
+
 
 ```
