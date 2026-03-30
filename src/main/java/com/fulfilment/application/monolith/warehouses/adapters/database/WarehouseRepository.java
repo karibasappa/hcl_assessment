@@ -1,13 +1,19 @@
 package com.fulfilment.application.monolith.warehouses.adapters.database;
 
+import com.fulfilment.application.monolith.products.ProductResource;
 import com.fulfilment.application.monolith.warehouses.domain.models.Warehouse;
 import com.fulfilment.application.monolith.warehouses.domain.ports.WarehouseStore;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
+import org.jboss.logging.Logger;
+
 import java.util.List;
 
 @ApplicationScoped
 public class WarehouseRepository implements WarehouseStore, PanacheRepository<DbWarehouse> {
+
+  private static final Logger LOGGER = Logger.getLogger(WarehouseRepository.class);
+
 
   @Override
   public List<Warehouse> getAll() {
@@ -46,8 +52,15 @@ public class WarehouseRepository implements WarehouseStore, PanacheRepository<Db
 
   @Override
   public void remove(Warehouse warehouse) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    String deleteQuery="DELETE FROM DbWarehouse w WHERE w.businessUnitCode=:warehouse.businessUnitCode";
+                int deletedCount= getEntityManager().createQuery(deleteQuery)
+                                         .setParameter("businessUnitCode",warehouse.businessUnitCode)
+                               .executeUpdate();
+    getEntityManager().flush();
+    getEntityManager().clear();
+    LOGGER.info("Warehouse object deleted with deletedCount= "+deletedCount);
+
+    //throw new UnsupportedOperationException("Unimplemented method 'remove'");
   }
 
   @Override

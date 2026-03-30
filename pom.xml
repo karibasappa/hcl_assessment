@@ -85,11 +85,11 @@
             <artifactId>quarkus-openapi-generator-server</artifactId>
             <version>2.4.7</version>
         </dependency>
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
+
 
     </dependencies>
 

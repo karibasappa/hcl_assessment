@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: com.fulfilment.application.monolith.warehouses.domain.usecases.ArchiveWarehouseUseCaseTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.455 s -- in com.fulfilment.application.monolith.warehouses.domain.usecases.ArchiveWarehouseUseCaseTest
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.862 s <<< FAILURE! -- in com.fulfilment.application.monolith.warehouses.domain.usecases.ArchiveWarehouseUseCaseTest
+com.fulfilment.application.monolith.warehouses.domain.usecases.ArchiveWarehouseUseCaseTest.testConcurrentArchiveAndStockUpdateCausesOptimisticLockException -- Time elapsed: 0.106 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected either both changes to be applied properly OR an exception to be thrown. Instead, a lost update occurred: archivedAt=2026-03-30T11:47:01.282553, stock=75 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:239)
+	at com.fulfilment.application.monolith.warehouses.domain.usecases.ArchiveWarehouseUseCaseTest.testConcurrentArchiveAndStockUpdateCausesOptimisticLockException(ArchiveWarehouseUseCaseTest.java:156)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.quarkus.test.junit.QuarkusTestExtension.runExtensionMethod(QuarkusTestExtension.java:973)
+	at io.quarkus.test.junit.QuarkusTestExtension.interceptTestMethod(QuarkusTestExtension.java:823)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
